@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		
+
+	</style>
+</head>
+<body>
+	
+	<nav class="navigation"></nav>
+
+	<div style="display: flex; justify-content: center; flex-grow: 1;">
+		<div class="container">
+			<div class="widget-head">
+				<span class="widget-title">Alerts</span>
+				<div style="display: flex; flex-direction: row; justify-content: flex-end; ">
+					<div style="height: 36px; display: flex; align-items: center; "><span>Widget link</span></div>
+					<input type="text" id="wiget-link-input" value="https://tipalerts.com/w/tips/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+					<button class="button-text" style="margin-left: 6px;">Copy</button>
+					<button class="button-icon" style="margin-left: 6px;">
+						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+					</button>
+					<button class="button-text" style="margin-left: 12px;">Test tip...</button>
+				</div>
+			</div>
+			<div class="presets-picker">
+				<h2>Preset</h2>
+				<div class="presets-collection">
+					<button class="presets-collection-item">1-15</button>
+					<button class="presets-collection-item">16-25</button>
+					<button class="presets-collection-item presets-collection-item-selected">25-100</button>
+					<button class="presets-collection-item">101-200</button>
+					<button class="presets-collection-item">Other</button>
+				</div>
+				<button class="button-text" style="background-color: #FFB65A; color: #333; font-weight: 700;">Create new</button>
+			</div>
+			<div class="preset-content">
+				<div>
+					<div class="module-36"><h3>Preview</h3></div>
+					<div class="preview"></div>
+				</div>
+				<div class="settings">
+					<div class="settings-tabs-wrapper">
+						<div class="settings-tabs-item settings-tabs-item-active" id="alerts-settings-preset">Preset</div>
+						<div class="settings-tabs-item" id="alerts-settings-tip-amount">Tip amount</div>
+						<div class="settings-tabs-item" id="alerts-settings-tipper-name">Tipper name</div>
+						<div class="settings-tabs-item" id="alerts-settings-custom-message">Custom message</div>
+						<div class="settings-tabs-item" id="alerts-settings-image">Image</div>
+						<div class="settings-tabs-item" id="alerts-settings-sound">Sound</div>
+					</div>
+					<div class="settings-tab-content">
+
+						<div id="alerts-settings-preset-content" style="display: flex; flex-direction: column;">
+							
+							<section class="preset-settings-section" id="alerts-tabs-preset-condition">
+								<div class="module-36 settings-section-header no-border col-12">
+									<span>Alert condition</span>
+									<label for="enable-preset" class="checkbox-container">
+											<input type="checkbox" id="enable-preset">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Enable preset</span>
+									</label>
+								</div>
+
+								<div class="row group">
+									<div class="col-3"><span class="row-title">Preset mode</span></div>
+
+									<div class="col-3">
+
+										<label for="preset-mode-tokens-range" class="checkbox-container">
+											<input type="radio" name="preset-mode" id="preset-mode-tokens-range" checked="true">
+											<span class="radio"></span>
+											<span class="checkbox-text">Tokens range</span>
+										</label>
+
+										<label for="preset-mode-single-amount" class="checkbox-container">
+											<input type="radio" name="preset-mode" id="preset-mode-single-amount">
+											<span class="radio"></span>
+											<span class="checkbox-text">Single amount</span>
+										</label>
+									</div>
+
+								</div>
+
+								<div class="module-36 row" id="tokens-range">
+									<span class="col-3 row-title">Tokens range</span>
+									<div class="col-3"><input type="number" disabled="true" value="25"></div>
+									<div class="col-3"><input type="number" disabled="true" value="100"></div>
+									<button class="button-icon button-no-bg">
+										<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+									</button>
+								</div>
+
+								<div class="module-36 row" id="tokens-amount" style="display: none;">
+									<span class="col-3 row-title">Tokens amount</span>
+									<div class="col-3"><input type="number" value="50"  disabled="true"></div>
+									<button class="button-icon button-no-bg">
+										<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+									</button>
+								</div>
+
+							</section>
+
+							<section class="preset-settings-section">
+								<div class="module-36 settings-section-header"><span>Animation</span></div>
+
+								<div class="row group">
+									<div class="col-3"><span class="row-title">Duration mode</span></div>
+									<div class="col-9" style="display: flex; flex-direction: column;">
+										
+									
+										
+										<label for="duration-depends" class="checkbox-container">
+											<input type="radio" id="duration-depends" name="duration-mode">
+											<span class="radio"></span>
+											<span class="checkbox-text">Duration depends on tip amount</span>
+										</label>
+
+										<label for="custom-duartion" class="checkbox-container">
+											<input type="radio" id="custom-duartion" name="duration-mode" checked="true
+											">
+											<span class="radio"></span>
+											<span class="checkbox-text">Custom duration</span>
+										</label>
+
+									</div>
+								</div>
+
+								<div class="module-36 row" style="align-items: center;" id="duration-slider">
+									<span class="col-3 row-title">Duration, sec</span>
+									<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
+										<div class="slider-container">
+											<input type="range" min="0" max="600" value="100" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="number" class="slider-input" value="30">
+									</div>
+								</div>
+								<div class="module-36 row">
+									<div class="col-3"><span class="row-title">Preset</span></div>
+									<div class="col-6">
+										<select name="" id="">
+											<option value="">Option 1</option>
+											<option value="">Option 2</option>
+										</select>
+									</div>
+								</div>
+								<div class="module-36 row">
+									<div class="col-3"></div>
+									<div class="col-9" style="display: flex; flex-direction: row; align-items: center;">
+										
+										<label for="split-by-one-token" class="checkbox-container">
+											<input type="checkbox" id="split-by-one-token">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Split alerts by one token</span>
+										</label>
+										<button class="button-icon button-no-bg" style="margin-left: 2px;">
+											<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+										</button>
+									</div>
+									
+								</div>
+							</section>
+
+							<section class="preset-settings-section">
+								<div class="module-36 settings-section-header"><span>Transform</span></div>
+								<div class="module-36 row">
+									<span class="col-3 row-title">Scale</span>
+									<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
+										<div class="slider-container">
+											<input type="range" min="0" max="200" value="100" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="number" class="slider-input" value="1">
+									</div>
+								</div>
+
+								<div class="module-36 row">
+									<span class="col-3 row-title">Rotation</span>
+									<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
+										<div class="slider-container">
+											<input type="range" min="0" max="360" value="0" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										
+										<input type="number" class="slider-input" value="0">
+										
+									</div>
+								</div>
+
+							</section>
+
+							<div class="module-36 row" style="display: flex; flex-direction: row; justify-content: flex-end;">
+								<button class="button-text-icon">
+									<img src="icons/ic-thrash.svg" height="24px" width="24px" alt="">
+									Delete preset
+								</button>
+							</div>
+						</div>
+						
+						<div id="alerts-settings-tip-amount-content" style="display: none; flex-direction: column; height: 100%;" >
+							
+							<section class="preset-settings-section">
+
+								<div class="module-36 settings-section-header no-border col-12">
+									<span>Text appearance</span>
+									<label for="display-tip-amount" class="checkbox-container">
+											<input type="checkbox" name="preset-mode" id="display-tip-amount" checked="true">
+											<span class="checkmark"></span>
+											<span class="checkbox-text" style="font-size: 16px;">Display tip amount</span>
+									</label>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Font</label>
+										<select name="" id="">
+											<option value="">Montserrat</option>
+											<option value="">Arial</option>
+											<option value="">Comic Sans</option>
+											<option value="">Times New Roman</option>
+										</select>
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Weight</label>
+										<select name="" id="">
+											<option value="">Regular</option>
+											<option value="">Semibold</option>
+											<option value="">Extrabold</option>
+											<option value="">Black</option>
+										</select>
+									</div>
+
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Style</label>
+										<div class="module-36">
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-bold.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-italic.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-strike-text.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-underline.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-uppercase.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-lowercase.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Alignment</label>
+										<div class="module-36">
+											<div class="flex-row group-12 button-group">
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-2"></div>
+								</div>
+
+								<div class="row" style="margin-bottom: 0px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="1" max="144" value="36" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-line-spacing.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="0" max="300" value="120" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="module-60 col-3">
+										<label for="shadow" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="shadow">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Shadow</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+											<button class="button-icon button-no-bg">
+												<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+									<div class="module-60 col-3">
+										<label for="bg" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" name="background" id="bg">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Background</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</section>
+							
+							<div class="row">
+								<div class="col-4">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Position</span></div>
+										<div class="position-picker">
+											<div class="position-picker-row">
+												<label for="pos-top-left" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-top-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-top-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-top-center" checked="true">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-top-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-top-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="pos-center-left" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-center-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-center-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-center-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-center-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-center-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="pos-bottom-left" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-bottom-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-bottom-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-bottom-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="pos-bottom-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="pos-bottom-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+
+											<img src="img/pony.png" alt="" class="position-picker-bg">
+
+										</div>
+									</section>
+								</div>
+
+								<div class="col-8">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Transform</span></div>
+										<div class="module-36">
+											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+									</section>
+								</div>
+							</div>
+
+							<section class="preset-settings-section" style="margin-bottom: 0px;">
+								<div class="module-36 settings-section-header">
+									<span>Animation</span>
+									<label for="enable-tip-amount-animation" class="checkbox-container">
+											<input type="checkbox" id="enable-tip-amount-animation">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Enable animation</span>
+									</label>
+								</div>
+								<div class="row" style="align-items: flex-end;">
+									<div class="module-36 col-6">
+										<select name="" id="">
+											<option value="">Default</option>
+											<option value="">Animation 2</option>
+											<option value="">Animation 3</option>
+											<option value="">Animation 4</option>
+										</select>
+									</div>
+									<div class="module-36 col-6">
+										<span class="slider-icon">Speed</span>
+										<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+							</section>	
+						</div>
+
+						<div id="alerts-settings-tipper-name-content" style="display: none; flex-direction: column;">
+							<section class="preset-settings-section">
+
+								<div class="module-36 settings-section-header no-border col-12">
+									<span>Text appearance</span>
+									<label for="display-name" class="checkbox-container">
+											<input type="checkbox" name="preset-mode" id="display-name" checked="true">
+											<span class="checkmark"></span>
+											<span class="checkbox-text" style="font-size: 16px;">Display tipper name</span>
+									</label>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Font</label>
+										<select name="" id="">
+											<option value="">Montserrat</option>
+											<option value="">Arial</option>
+											<option value="">Comic Sans</option>
+											<option value="">Times New Roman</option>
+										</select>
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Weight</label>
+										<select name="" id="">
+											<option value="">Regular</option>
+											<option value="">Semibold</option>
+											<option value="">Extrabold</option>
+											<option value="">Black</option>
+										</select>
+									</div>
+
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Style</label>
+										<div class="module-36">
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-bold.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-italic.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-strike-text.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-underline.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-uppercase.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-lowercase.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Alignment</label>
+										<div class="module-36">
+											<div class="flex-row group-12 button-group">
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-2"></div>
+								</div>
+
+								<div class="row" style="margin-bottom: 0px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-line-spacing.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="module-60 col-3">
+										<label for="name-shadow" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="name-shadow">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Shadow</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+											<button class="button-icon button-no-bg">
+												<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+									<div class="module-60 col-3">
+										<label for="name-bg" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" name="background" id="name-bg">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Background</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</section>
+							
+							<div class="row">
+								<div class="col-4">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Position</span></div>
+										<div class="position-picker">
+											<div class="position-picker-row">
+												<label for="name-pos-top-left" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-top-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-top-center" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-top-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-top-right" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-top-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="name-pos-center-left" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-center-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-center-center" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-center-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-center-right" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-center-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="name-pos-bottom-left" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-bottom-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-bottom-center" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-bottom-center" checked="true">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="name-pos-bottom-right" class="checkbox-container row-title">
+													<input type="radio"  name="name-position" id="name-pos-bottom-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+
+											<img src="img/pony.png" alt="" class="position-picker-bg">
+
+										</div>
+									</section>
+								</div>
+
+								<div class="col-8">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Transform</span></div>
+										<div class="module-36">
+											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+									</section>
+								</div>
+							</div>
+
+							<section class="preset-settings-section" style="margin-bottom: 0px;">
+								<div class="module-36 settings-section-header">
+									<span>Animation</span>
+									<label for="enable-name-animation" class="checkbox-container">
+											<input type="checkbox" id="enable-name-animation">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Enable animation</span>
+									</label>
+								</div>
+								<div class="row" style="align-items: flex-end;">
+									<div class="module-36 col-6">
+										<select name="" id="">
+											<option value="">Default</option>
+											<option value="">Animation 2</option>
+											<option value="">Animation 3</option>
+											<option value="">Animation 4</option>
+										</select>
+									</div>
+									<div class="module-36 col-6">
+										<span class="slider-icon">Speed</span>
+										<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+							</section>	
+						</div>
+
+						<div id="alerts-settings-custom-message-content" style="display: none; flex-direction: column;">
+							
+							<section class="preset-settings-section">
+								<div class="module-36 settings-section-header no-border col-12">
+									<span>Message text</span>
+									<label for="display-custom-message" class="row-title checkbox-container">
+											<input type="checkbox" id="display-custom-message">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Display custom message</span>
+									</label>
+								</div>
+								<textarea name="" id="" cols="30" rows="10"></textarea>
+								<p class="hint">Use <span class="orange">$NICK</span> and <span class="orange">$AMOUNT</span> keywords to insert tipper name and tip amount into the message.</p>
+							</section>
+
+							<section class="preset-settings-section">
+
+								<div class="module-36 settings-section-header col-12">
+									<span>Text appearance</span>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Font</label>
+										<select name="" id="">
+											<option value="">Montserrat</option>
+											<option value="">Arial</option>
+											<option value="">Comic Sans</option>
+											<option value="">Times New Roman</option>
+										</select>
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Weight</label>
+										<select name="" id="">
+											<option value="">Regular</option>
+											<option value="">Semibold</option>
+											<option value="">Extrabold</option>
+											<option value="">Black</option>
+										</select>
+									</div>
+
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="col-6 module-60">
+										<label for="" class="row-title">Style</label>
+										<div class="module-36">
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-bold.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-font-italic.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-strike-text.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-underline.svg" height="24px" width="24px" alt=""></button>
+											</div>
+											<div class="flex-row group-4 button-group">
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-uppercase.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-6 button-icon-fix-padding"><img src="icons/ic-lowercase.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									
+									</div>
+
+									<div class="col-4 module-60">
+										<label for="" class="row-title">Alignment</label>
+										<div class="module-36">
+											<div class="flex-row group-12 button-group">
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt=""></button>
+												<button class="group-4 button-icon-fix-padding"><img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt=""></button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-2"></div>
+								</div>
+
+								<div class="row" style="margin-bottom: 0px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row" style="margin-bottom: 24px;">
+									<div class="module-36 col-12">
+										<img src="icons/ic-line-spacing.svg" height="24px" width="24px" alt="" class="slider-icon">
+										<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="module-60 col-3">
+										<label for="msg-shadow" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="msg-shadow">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Shadow</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+											<button class="button-icon button-no-bg">
+												<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+									<div class="module-60 col-3">
+										<label for="msg-bg" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" name="background" id="msg-bg">
+											<span class="checkmark"></span>
+											<span class="checkbox-text checkbox-text-small">Background</span>
+										</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</section>
+							
+							<div class="row">
+								<div class="col-4">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Position</span></div>
+										<div class="position-picker">
+											<div class="position-picker-row">
+												<label for="msg-pos-top-left" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-top-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-top-center" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-top-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-top-right" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-top-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="msg-pos-center-left" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-center-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-center-center" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-center-center">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-center-right" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-center-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+											<div class="position-picker-row">
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+												<div class="position-picker-line-v"></div>
+											</div>
+											<div class="position-picker-row">
+												<label for="msg-pos-bottom-left" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-bottom-left">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-bottom-center" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-bottom-center" checked="true">
+													<span class="position-picker-checkbox"></span>
+												</label>
+												<div class="position-picker-line"></div>
+												<label for="msg-pos-bottom-right" class="checkbox-container row-title">
+													<input type="radio"  name="msg-position" id="msg-pos-bottom-right">
+													<span class="position-picker-checkbox"></span>
+												</label>
+											</div>
+
+											<img src="img/pony.png" alt="" class="position-picker-bg">
+
+										</div>
+									</section>
+								</div>
+
+								<div class="col-8">
+									<section class="preset-settings-section">
+										<div class="module-36 settings-section-header"><span>Transform</span></div>
+										<div class="module-36">
+											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+										<div class="module-36">
+											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+									</section>
+								</div>
+							</div>
+
+							<section class="preset-settings-section" style="margin-bottom: 0px;">
+								<div class="module-36 settings-section-header">
+									<span>Animation</span>
+									<label for="enable-msg-animation" class="checkbox-container">
+											<input type="checkbox" id="enable-msg-animation">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Enable animation</span>
+									</label>
+								</div>
+								<div class="row" style="align-items: flex-end;">
+									<div class="module-36 col-6">
+										<select name="" id="">
+											<option value="">Default</option>
+											<option value="">Animation 2</option>
+											<option value="">Animation 3</option>
+											<option value="">Animation 4</option>
+										</select>
+									</div>
+									<div class="module-36 col-6">
+										<span class="slider-icon">Speed</span>
+										<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+										</div>
+										<input type="text" class="slider-input" value="100">
+									</div>
+								</div>
+							</section>	
+						</div>
+
+						<div id="alerts-settings-image-content" style="display: none; flex-direction: column;">
+
+							<div class=" row">
+
+								<div class="col-5 module-36">
+									<div><span class="slider-icon">Opacity</span></div>
+									<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+									</div>
+									<input type="text" class="slider-input" value="45">
+								</div>
+
+								<div class="col-4 module-36">
+									
+									
+									<label for="random-image" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="random-image">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Random image</span>
+									</label>
+
+									<button class="button-icon button-no-bg" style="margin-left: 2px;">
+											<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+									</button>
+
+								</div>
+
+								<div class="col-3 module-36" >
+										<label for="display-image" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="display-image">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Display image</span>
+										</label>
+								</div>
+
+							</div>
+
+							<div class="row" style="justify-content: space-between; margin-bottom: 6px;">
+
+									<div class="col-7  module-36">
+										
+												<div class="gallery-filter"> <span>TipAlerts</span> </div>
+											
+												<div class="gallery-filter gallery-filter-selected"> <span>Uploaded</span> </div>
+												
+												<div class="gallery-filter"> <span>Random Pool</span> </div>
+										
+									</div>
+
+									<button class="button-text">Upload image...</button>
+											
+							</div>
+
+							<div class="images-gallery-wrapper">
+								<div class="img-row">
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+								</div>
+
+								<div class="img-row">
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+								</div>
+
+								<div class="img-row">
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+								</div>
+
+								<div class="img-row">
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+								</div>
+
+								<div class="img-row">
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+									<div class="image"></div>
+								</div>
+								
+								
+							</div>
+						</div>
+
+						<div id="alerts-settings-sound-content" style="display: none; flex-direction: column; height: 100%; overflow: hidden;">
+							<div class="row ">
+								<div class="col-9 module-36">
+									<div><span class="slider-icon">Volume</span></div>
+									<div class="slider-container">
+											<input type="range" min="0" max="100" value="50" class="newSlider">
+											<div class="slider-bar-empty"></div>
+											<div class="slider-bar-fill"></div>
+									</div>
+									<input type="text" class="slider-input" value="45">
+								</div>
+
+								<div class="col-3 module-36" style="justify-content: flex-end;">
+										<label for="play-sound" class="row-title checkbox-container checkbox-container-small">
+											<input type="checkbox" id="play-sound" checked="true">
+											<span class="checkmark"></span>
+											<span class="checkbox-text">Play sound</span>
+										</label>
+								</div>
+							</div>
+
+							<div class="row" style="justify-content: space-between; margin-bottom: 6px;">
+								
+									<div class="col-6  module-36">
+										
+												<div class="gallery-filter"> <span>TipAlerts</span> </div>
+											
+												<div class="gallery-filter gallery-filter-selected"> <span>Uploaded</span> </div>
+												
+												
+										
+									</div>
+
+									<button class="button-text">Upload sound...</button>
+
+							</div>
+
+							<div class="sound-list">
+							
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 1</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 2</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 3</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 4</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 5</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 6</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 7</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 8</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 9</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+								<div class="module-36 row sound-list-item">
+
+									<div class="module-36">
+										<button class="button-icon button-no-bg"><img src="icons/ic-sound-grey.svg" height="24px" width="24px" alt=""></button>
+										<button class="button-icon button-no-bg"><img src="icons/ic-play.svg" height="24px" width="24px" alt=""></button>
+										<span class="sound-title">Sound 10</span>
+									</div>
+
+									<button class="button-icon button-no-bg sound-delete"><img src="icons/ic-thrash.svg" height="24px" width="24px" alt=""></button>
+									
+								</div>
+
+						
+								
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="js/alerts/tabs.js"></script>
+<script src="js/alerts/presetMode.js"></script>
+<script src="js/alerts/durationMode.js"></script>
+<script src="js/slider.js"></script>
+</body>
+</html>
