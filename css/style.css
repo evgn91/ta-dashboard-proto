@@ -216,6 +216,10 @@
 			transition: all .2s ease;
 		}
 
+		.button-no-bg:hover{
+			background: none;
+		}
+
 		.button-no-bg img{
 			opacity: .54;
 			transition: all .2s ease;
@@ -223,6 +227,7 @@
 
 		.button-no-bg:hover img{
 			opacity: 1;
+			/*background: rgba(0,0,0,0) !important; */
 		}
 
 		.button-icon-fix-padding{
@@ -523,12 +528,22 @@
 			opacity: 0.54;
 		}
 
+
+		.sound-list-item button{
+			margin-right: 6px;
+		}
+
 		.sound-list > .sound-list-item:nth-child(2n){
 			background-color: #39556A;
 		}
 		
 		.sound-list > .sound-list-item:nth-child(2n):hover{
 			background-color: hsl(206, 30%, 37%);
+		}
+
+		.sound-play-active img{
+			opacity: 1;
+			background-image: url('../icons/ic-stop.svg');
 		}
 
 		.group-4{
@@ -988,6 +1003,14 @@
 	animation-duration: .175s;
 	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
+}
+
+.font-style-ind-active{
+	background-color: hsl( 33, 100%, 68% );
+}
+
+.font-style-ind-active:hover{
+	background-color: hsl( 33, 100%, 73% );
 }
 
 @keyframes moveTop{
