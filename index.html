@@ -5,6 +5,7 @@
 	<title>Alerts — TipAlerts</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/toast.css">
 	<style>
 		
 
@@ -12,15 +13,66 @@
 </head>
 <body>
 	
-	<nav class="navigation"></nav>
+	<nav class="navigation">
+
+		<div id="nav-left">
+			<div id="nav-logo">
+				<span>tipalerts</span>
+			</div>
+			<div id="nav-widgets">
+
+				<a href="#" class="nav-item">
+					<div>Alerts</div>
+				</a>
+
+				<a href="#" class="nav-item">
+					<div>Goals</div>
+				</a>
+
+				<a href="#" class="nav-item">
+					<div>Top Tippers</div>
+				</a>
+
+				<a href="#" class="nav-item">
+					<div>Roll The Dice</div>
+				</a>
+
+			</div>	
+		</div>
+		
+		<div id="nav-right">
+			<span id="email">johndoe@domain.com</span>
+			<a href="#" class="nav-item">
+					<div>EN</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Help</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Settings</div>
+			</a>
+			<a href="#" class="nav-item">
+					<div>Sign Out</div>
+			</a>
+			
+		</div>
+	</nav>
 
 	<div style="display: flex; justify-content: center; flex-grow: 1;">
 		<div class="container">
 			<div class="widget-head">
 				<span class="widget-title">Alerts</span>
+
 				<div style="display: flex; flex-direction: row; justify-content: flex-end; ">
-					<div style="height: 36px; display: flex; align-items: center; "><span>Widget link</span></div>
-					<input type="text" id="wiget-link-input" value="https://tipalerts.com/w/tips/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+					<div style="height: 36px; display: flex; align-items: center;">
+						<span>Widget link</span>
+					</div>
+
+					<div style="display: flex; flex-direction: column;">
+						<input type="text" id="widget-link-input" value="https://tipalerts.com/w/tips/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+						<span class="widget-link-warning">Warning! Do not publish widget link, it’ll cause access to your widgets and stats.</span>
+					</div>
+
 					<button class="button-text" style="margin-left: 6px;">Copy</button>
 					<button class="button-icon" style="margin-left: 6px;">
 						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
@@ -28,6 +80,7 @@
 					<button class="button-text" style="margin-left: 12px;">Test tip...</button>
 				</div>
 			</div>
+
 			<div class="presets-picker">
 				<h2>Preset</h2>
 				<div class="presets-collection">
@@ -35,10 +88,11 @@
 					<button class="presets-collection-item">16-25</button>
 					<button class="presets-collection-item presets-collection-item-selected">25-100</button>
 					<button class="presets-collection-item">101-200</button>
-					<button class="presets-collection-item">Other</button>
+					<button class="presets-collection-item" id="any-tip">Any other</button>
 				</div>
 				<button class="button-text" style="background-color: #FFB65A; color: #333; font-weight: 700;">Create new</button>
 			</div>
+
 			<div class="preset-content">
 				<div>
 					<div class="module-36"><h3>Preview</h3></div>
@@ -58,6 +112,7 @@
 						<div id="alerts-settings-preset-content" style="display: flex; flex-direction: column;">
 							
 							<section class="preset-settings-section" id="alerts-tabs-preset-condition">
+								
 								<div class="module-36 settings-section-header no-border col-12">
 									<span>Alert condition</span>
 									<label for="enable-preset" class="checkbox-container">
@@ -67,41 +122,55 @@
 									</label>
 								</div>
 
+								<div class="col-12" id="any-tip-condition" style="display: none;">
+											<div class="module-36 row">
+												<span>This preset works for all tips that are not used in other presets.</span>
+											</div>		
+								</div>
+
+							<div id="default_tip_condition">
+
 								<div class="row group">
-									<div class="col-3"><span class="row-title">Preset mode</span></div>
 
-									<div class="col-3">
+										<div class="col-3">
+											<span class="row-title">Preset mode</span>
+										</div>
 
-										<label for="preset-mode-tokens-range" class="checkbox-container">
-											<input type="radio" name="preset-mode" id="preset-mode-tokens-range" checked="true">
-											<span class="radio"></span>
-											<span class="checkbox-text">Tokens range</span>
-										</label>
+										<div class="col-3">
 
-										<label for="preset-mode-single-amount" class="checkbox-container">
-											<input type="radio" name="preset-mode" id="preset-mode-single-amount">
-											<span class="radio"></span>
-											<span class="checkbox-text">Single amount</span>
-										</label>
+											<label for="preset-mode-tokens-range" class="checkbox-container">
+												<input type="radio" name="preset-mode" id="preset-mode-tokens-range" checked="true">
+												<span class="radio"></span>
+												<span class="checkbox-text">Tokens range</span>
+											</label>
+
+											<label for="preset-mode-single-amount" class="checkbox-container">
+												<input type="radio" name="preset-mode" id="preset-mode-single-amount">
+												<span class="radio"></span>
+												<span class="checkbox-text">Single amount</span>
+											</label>
+										
+										</div>
+
+								</div>
+
+									<div class="module-36 row" id="tokens-range">
+										<span class="col-3 row-title">Tokens range</span>
+										<div class="col-3"><input type="number" disabled="true" value="25"></div>
+										<div class="col-3"><input type="number" disabled="true" value="100"></div>
+										<button class="button-icon button-no-bg">
+											<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+										</button>
 									</div>
 
-								</div>
-
-								<div class="module-36 row" id="tokens-range">
-									<span class="col-3 row-title">Tokens range</span>
-									<div class="col-3"><input type="number" disabled="true" value="25"></div>
-									<div class="col-3"><input type="number" disabled="true" value="100"></div>
-									<button class="button-icon button-no-bg">
-										<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
-									</button>
-								</div>
-
-								<div class="module-36 row" id="tokens-amount" style="display: none;">
-									<span class="col-3 row-title">Tokens amount</span>
-									<div class="col-3"><input type="number" value="50"  disabled="true"></div>
-									<button class="button-icon button-no-bg">
-										<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
-									</button>
+									<div class="module-36 row" id="tokens-amount" style="display: none;">
+										<span class="col-3 row-title">Tokens amount</span>
+										<div class="col-3"><input type="number" value="50"  disabled="true"></div>
+										<button class="button-icon button-no-bg">
+											<img src="icons/ic-edit.svg" height="24px" width="24px" alt="">
+										</button>
+									</div>
+								
 								</div>
 
 							</section>
@@ -206,7 +275,7 @@
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Font</label>
 										<select name="" id="">
 											<option value="">Montserrat</option>
@@ -216,7 +285,7 @@
 										</select>
 									</div>
 
-									<div class="col-4 module-60">
+									<div class="col-5 module-60">
 										<label for="" class="row-title">Weight</label>
 										<select name="" id="">
 											<option value="">Regular</option>
@@ -226,19 +295,10 @@
 										</select>
 									</div>
 
-									<div class="col-2 module-60">
-										<label for="" class="row-title">Color</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
-										</div>
-									</div>
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
@@ -273,9 +333,9 @@
 									
 									</div>
 
-									<div class="col-4 module-60">
-										<label for="" class="row-title">Alignment</label>
-										<div class="module-36">
+									<div class="col-3 module-60">
+										<label for="" class="row-title" style="display: none;">Alignment</label>
+										<div class="module-36" style="display: none;">
 											<div class="flex-row group-12 button-group text-alignment-buttons">
 												
 												<button class="group-4 button-icon-fix-padding ">
@@ -294,7 +354,16 @@
 										</div>
 									</div>
 
-									<div class="col-2"></div>
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+
 								</div>
 
 								<div class="row" style="margin-bottom: 0px;">
@@ -503,7 +572,7 @@
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Font</label>
 										<select name="" id="">
 											<option value="">Montserrat</option>
@@ -513,7 +582,7 @@
 										</select>
 									</div>
 
-									<div class="col-4 module-60">
+									<div class="col-5 module-60">
 										<label for="" class="row-title">Weight</label>
 										<select name="" id="">
 											<option value="">Regular</option>
@@ -523,19 +592,10 @@
 										</select>
 									</div>
 
-									<div class="col-2 module-60">
-										<label for="" class="row-title">Color</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
-										</div>
-									</div>
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
@@ -570,24 +630,37 @@
 									
 									</div>
 
-									<div class="col-4 module-60">
-										<label for="" class="row-title">Alignment</label>
-										<div class="module-36">
+									<div class="col-3 module-60">
+										<label for="" class="row-title" style="display: none;">Alignment</label>
+										<div class="module-36" style="display: none;">
 											<div class="flex-row group-12 button-group text-alignment-buttons">
-												<button class="group-4 button-icon-fix-padding">
-													<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
+												
+												<button class="group-4 button-icon-fix-padding ">
+														<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
 												</button>
+
 												<button class="group-4 button-icon-fix-padding font-style-ind-active">
-													<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
+														<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
 												</button>
+
 												<button class="group-4 button-icon-fix-padding">
-													<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
+														<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
 												</button>
+
 											</div>
 										</div>
 									</div>
 
-									<div class="col-2"></div>
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+
 								</div>
 
 								<div class="row" style="margin-bottom: 0px;">
@@ -784,8 +857,14 @@
 						</div>
 
 						<div id="alerts-settings-custom-message-content" style="display: none; flex-direction: column;">
-							
-							<section class="preset-settings-section">
+							<div id="custom-message-subscr-placeholder">
+								<h2>Upgrade your subscription and start using custom messages</h2>
+								<p>You can test custom message in a preview mode. It won’t be displayed in your stream.</p>
+								<button id="custom-message-test">Test in preview</button>
+								<button>Upgrade to premium</button>
+							</div>
+							<div style="display: none;" id="custom-message">
+								<section class="preset-settings-section">
 								<div class="module-36 settings-section-header no-border col-12">
 									<span>Message text</span>
 									<label for="display-custom-message" class="row-title checkbox-container">
@@ -796,16 +875,16 @@
 								</div>
 								<textarea name="" id="" cols="30" rows="10"></textarea>
 								<p class="hint">Use <span class="orange">$NICK</span> and <span class="orange">$AMOUNT</span> keywords to insert tipper name and tip amount into the message.</p>
-							</section>
+								</section>
 
-							<section class="preset-settings-section">
+								<section class="preset-settings-section">
 
 								<div class="module-36 settings-section-header col-12">
 									<span>Text appearance</span>
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Font</label>
 										<select name="" id="">
 											<option value="">Montserrat</option>
@@ -815,7 +894,7 @@
 										</select>
 									</div>
 
-									<div class="col-4 module-60">
+									<div class="col-5 module-60">
 										<label for="" class="row-title">Weight</label>
 										<select name="" id="">
 											<option value="">Regular</option>
@@ -825,19 +904,10 @@
 										</select>
 									</div>
 
-									<div class="col-2 module-60">
-										<label for="" class="row-title">Color</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
-										</div>
-									</div>
 								</div>
 
 								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-6 module-60">
+									<div class="col-7 module-60">
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
@@ -867,28 +937,42 @@
 													<img src="icons/ic-lowercase.svg" height="24px" width="24px" alt="">
 												</button>
 											</div>
+
 										</div>
 									
 									</div>
 
-									<div class="col-4 module-60">
+									<div class="col-3 module-60">
 										<label for="" class="row-title">Alignment</label>
 										<div class="module-36">
 											<div class="flex-row group-12 button-group text-alignment-buttons">
+												
+												<button class="group-4 button-icon-fix-padding ">
+														<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
+												</button>
+
 												<button class="group-4 button-icon-fix-padding font-style-ind-active">
-													<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
+														<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
 												</button>
+
 												<button class="group-4 button-icon-fix-padding">
-													<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
+														<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
 												</button>
-												<button class="group-4 button-icon-fix-padding">
-													<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
-												</button>
+
 											</div>
 										</div>
 									</div>
 
-									<div class="col-2"></div>
+									<div class="col-2 module-60">
+										<label for="" class="row-title">Color</label>
+										<div class="color-picker module-36">
+											<div class='color-picker-fill'></div>
+											<button class="button-icon">
+												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+											</button>
+										</div>
+									</div>
+
 								</div>
 
 								<div class="row" style="margin-bottom: 0px;">
@@ -946,10 +1030,9 @@
 										</div>
 									</div>
 								</div>
-
-							</section>
+								</section>
 							
-							<div class="row">
+								<div class="row">
 								<div class="col-4">
 									<section class="preset-settings-section">
 										<div class="module-36 settings-section-header"><span>Position</span></div>
@@ -1051,9 +1134,9 @@
 										</div>
 									</section>
 								</div>
-							</div>
-
-							<section class="preset-settings-section" style="margin-bottom: 0px;">
+								</div>
+	
+								<section class="preset-settings-section" style="margin-bottom: 0px;">
 								<div class="module-36 settings-section-header">
 									<span>Animation</span>
 									<label for="enable-msg-animation" class="checkbox-container">
@@ -1081,7 +1164,8 @@
 										<input type="text" class="slider-input" value="100">
 									</div>
 								</div>
-							</section>	
+								</section>
+							</div>
 						</div>
 
 						<div id="alerts-settings-image-content" style="display: none; flex-direction: column;">
@@ -1374,5 +1458,8 @@
 <script src="js/slider.js"></script>
 <script src="js/fontStyles.js"></script>
 <script src="js/sound.js"></script>
+<script src="js/presetPicker.js"></script>
+<script src="js/alerts/customMessage.js"></script>
+
 </body>
 </html>
