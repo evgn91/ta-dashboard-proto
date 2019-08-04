@@ -96,7 +96,19 @@
 			<div class="preset-content">
 				<div>
 					<div class="module-36"><h3>Preview</h3></div>
-					<div class="preview"></div>
+					<div class="preview">
+						<div id="preset-image">
+							<div id="preset-tip-amount">
+								<div id="translate-x">
+									<div id="translate-y">
+										<div id="rotate-container">100</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+					</div>
 				</div>
 				<div class="settings">
 					<div class="settings-tabs-wrapper">
@@ -366,11 +378,11 @@
 
 								</div>
 
-								<div class="row" style="margin-bottom: 0px;">
+								<div class="row" style="margin-bottom: 24px;">
 									<div class="module-36 col-12">
 										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
 										<div class="slider-container">
-											<input type="range" min="1" max="144" value="36" class="newSlider">
+											<input type="range" min="1" max="144" value="36" class="newSlider" id="font-size-tip-amount">
 											<div class="slider-bar-empty"></div>
 											<div class="slider-bar-fill"></div>
 										</div>
@@ -378,17 +390,17 @@
 									</div>
 								</div>
 
-								<div class="row" style="margin-bottom: 24px;">
+								<!-- <div class="row" style="margin-bottom: 24px;">
 									<div class="module-36 col-12">
 										<img src="icons/ic-line-spacing.svg" height="24px" width="24px" alt="" class="slider-icon">
 										<div class="slider-container">
-											<input type="range" min="0" max="300" value="120" class="newSlider">
+											<input type="range" min="0" max="300" value="120" class="newSlider" id="line-height-tip-amount">
 											<div class="slider-bar-empty"></div>
 											<div class="slider-bar-fill"></div>
 										</div>
 										<input type="text" class="slider-input" value="100">
 									</div>
-								</div>
+								</div> -->
 
 								<div class="row">
 									<div class="module-60 col-3">
@@ -398,7 +410,7 @@
 											<span class="checkbox-text checkbox-text-small">Shadow</span>
 										</label>
 										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
+											<div class='color-picker-fill' style="width: 56px;"></div>
 											<button class="button-icon">
 												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
 											</button>
@@ -414,7 +426,7 @@
 											<span class="checkbox-text checkbox-text-small">Background</span>
 										</label>
 										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
+											<div class='color-picker-fill' style="width: 56px;"></div>
 											<button class="button-icon">
 												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
 											</button>
@@ -430,18 +442,18 @@
 										<div class="module-36 settings-section-header"><span>Position</span></div>
 										<div class="position-picker">
 											<div class="position-picker-row">
-												<label for="pos-top-left" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-top-left">
+												<label for="amount-pos-top-left" class="checkbox-container row-title">
+													<input type="radio" name="position" id="amount-pos-top-left" checked="true">
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-top-center" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-top-center" checked="true">
+												<label for="amount-pos-top-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-top-center" >
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-top-right" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-top-right">
+												<label for="amount-pos-top-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-top-right">
 													<span class="position-picker-checkbox"></span>
 												</label>
 											</div>
@@ -451,18 +463,18 @@
 												<div class="position-picker-line-v"></div>
 											</div>
 											<div class="position-picker-row">
-												<label for="pos-center-left" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-center-left">
+												<label for="amount-pos-center-left" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-center-left">
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-center-center" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-center-center">
+												<label for="amount-pos-center-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-center-center">
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-center-right" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-center-right">
+												<label for="amount-pos-center-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-center-right">
 													<span class="position-picker-checkbox"></span>
 												</label>
 											</div>
@@ -472,18 +484,18 @@
 												<div class="position-picker-line-v"></div>
 											</div>
 											<div class="position-picker-row">
-												<label for="pos-bottom-left" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-bottom-left">
+												<label for="amount-pos-bottom-left" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-bottom-left">
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-bottom-center" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-bottom-center">
+												<label for="amount-pos-bottom-center" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-bottom-center">
 													<span class="position-picker-checkbox"></span>
 												</label>
 												<div class="position-picker-line"></div>
-												<label for="pos-bottom-right" class="checkbox-container row-title">
-													<input type="radio"  name="position" id="pos-bottom-right">
+												<label for="amount-pos-bottom-right" class="checkbox-container row-title">
+													<input type="radio"  name="position" id="amount-pos-bottom-right">
 													<span class="position-picker-checkbox"></span>
 												</label>
 											</div>
@@ -500,27 +512,27 @@
 										<div class="module-36">
 											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider" id="tip-amount-translate-x">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider" id="tip-amount-translate-y">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-180" max="180" value="0" class="newSlider" id="transform-rotate-tip-amount">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
@@ -856,17 +868,20 @@
 							</section>	
 						</div>
 
-						<div id="alerts-settings-custom-message-content" style="display: none; flex-direction: column;">
+						<div id="alerts-settings-custom-message-content" style="display: none; flex-direction: column; flex-grow: 1;">
 							<div id="custom-message-subscr-placeholder">
 								<h2>Upgrade your subscription and start using custom messages</h2>
-								<p>You can test custom message in a preview mode. It won’t be displayed in your stream.</p>
-								<button id="custom-message-test">Test in preview</button>
-								<button>Upgrade to premium</button>
+								<p>You can test custom message in a preview mode. But keep in mind, that it won’t be displayed in your stream.</p>
+								<div style="display: flex; flex-direction: row;">
+									<button id="custom-message-test" class="button-text">Test in preview</button>
+									<button class="button-text">Upgrade to premium</button>
+								</div>
+								
 							</div>
 							<div style="display: none;" id="custom-message">
 								<section class="preset-settings-section">
 								<div class="module-36 settings-section-header no-border col-12">
-									<span>Message text</span>
+									<span>Message text (preview only)</span>
 									<label for="display-custom-message" class="row-title checkbox-container">
 											<input type="checkbox" id="display-custom-message">
 											<span class="checkmark"></span>
@@ -1452,6 +1467,7 @@
 		</div>
 	</div>
 
+<script src="js/alerts/tipAmount.js"></script>
 <script src="js/alerts/tabs.js"></script>
 <script src="js/alerts/presetMode.js"></script>
 <script src="js/alerts/durationMode.js"></script>

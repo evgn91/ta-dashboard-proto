@@ -27,6 +27,38 @@ function changeFill(input, fill) {
 	}
 }
 
+function changeFillCentered(input, fill){
+	return function() {
+		fill.style.position = 'absolute';
+		fill.style.left = '50%';
+
+		if(input.value >= 0){
+
+			if(fill.style.right) {
+
+				fill.style.right = '';
+				fill.style.left = '50%';
+
+			}
+
+			fill.style.width = ( input.value * 100 / input.max ) / 2 + '%';
+			//console.log( fill.style );
+			
+		}
+		else if(input.value < 0){
+			
+			if(fill.style.left) {
+
+				fill.style.left = '';
+				fill.style.right = '50%';
+				
+			}
+
+			fill.style.width = ( Math.abs(input.value) * 100 / Math.abs(input.min) ) / 2 + '%';
+		}
+	}
+}
+
 function changeTextInput(input){
 	return function () {
 		input.value = event.target.value;
@@ -83,6 +115,11 @@ window.onload = () => {
 															console.log(sliderFill);
 			} );*/
 
+		}
+
+		else if( sliderChildren[j].className == 'slider-bar-fill-center' ){
+			sliderFill = sliderChildren[j];
+			sliderInput.oninput = changeFillCentered(sliderInput, sliderFill);
 		}
 
 			
