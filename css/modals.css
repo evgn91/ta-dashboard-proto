@@ -1,0 +1,51 @@
+.popup{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 9999;
+	border-radius: 6px;
+	background-color: #1D272E;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 0 16px 0 16px;
+	animation-name: modalGrow;
+	animation-duration: .15s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;
+
+}
+
+#testTip{
+	width: 360px;
+}
+
+.popupHeader{
+	height: 36px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+
+.popupActions{
+	height: 56px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+@keyframes modalGrow{
+	from{
+		height: 0;
+		opacity: 0;
+	}
+	to{
+		height: 200px;
+		opacity: 1;
+	}
+}

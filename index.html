@@ -6,13 +6,28 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/toast.css">
+	<link rel="stylesheet" href="css/modals.css">
 	<style>
 		
 
 	</style>
 </head>
 <body>
-	
+	<!-- <div class="popup" id="testTip">
+		<div class="popupHeader">
+			<span>Send test tip</span>
+		</div>
+
+		<div>
+			<p>Modal text</p>
+		</div>
+
+		<div class="popupActions">
+			<button class="button-text">Close</button>
+			<button class="button-text">Send</button>
+		</div>
+	</div> -->
+
 	<nav class="navigation">
 
 		<div id="nav-left">
@@ -77,7 +92,9 @@
 					<button class="button-icon" style="margin-left: 6px;">
 						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
 					</button>
-					<button class="button-text" style="margin-left: 12px;">Test tip...</button>
+					<button class="button-text" id="testTipButton" style="margin-left: 12px;">
+						Test tip...
+					</button>
 				</div>
 			</div>
 
@@ -111,6 +128,7 @@
 					</div>
 				</div>
 				<div class="settings">
+
 					<div class="settings-tabs-wrapper">
 						<div class="settings-tabs-item settings-tabs-item-active" id="alerts-settings-preset">Preset</div>
 						<div class="settings-tabs-item" id="alerts-settings-tip-amount">Tip amount</div>
@@ -119,9 +137,10 @@
 						<div class="settings-tabs-item" id="alerts-settings-image">Image</div>
 						<div class="settings-tabs-item" id="alerts-settings-sound">Sound</div>
 					</div>
+
 					<div class="settings-tab-content">
 
-						<div id="alerts-settings-preset-content" style="display: flex; flex-direction: column;">
+						<div id="alerts-settings-preset-content" class="settings-content" style="display: flex; flex-direction: column;">
 							
 							<section class="preset-settings-section" id="alerts-tabs-preset-condition">
 								
@@ -216,7 +235,7 @@
 									<span class="col-3 row-title">Duration, sec</span>
 									<div class="col-9" style="align-items: center; display: flex; flex-direction: row;">
 										<div class="slider-container">
-											<input type="range" min="0" max="600" value="100" class="newSlider">
+											<input type="range" min="0" max="60" value="10" class="newSlider">
 											<div class="slider-bar-empty"></div>
 											<div class="slider-bar-fill"></div>
 										</div>
@@ -273,7 +292,7 @@
 							</div>
 						</div>
 						
-						<div id="alerts-settings-tip-amount-content" style="display: none; flex-direction: column; height: 100%;" >
+						<div id="alerts-settings-tip-amount-content" class="settings-content" style="display: none; flex-direction: column; height: 100%;" >
 							
 							<section class="preset-settings-section">
 
@@ -314,11 +333,11 @@
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
-											<div class="flex-row group-4 button-group">
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+											<div class="flex-row group-4">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
 												</button>
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
 												</button>
 											</div>
@@ -571,7 +590,7 @@
 							</section>	
 						</div>
 
-						<div id="alerts-settings-tipper-name-content" style="display: none; flex-direction: column;">
+						<div id="alerts-settings-tipper-name-content" class="settings-content" style="display: none; flex-direction: column;">
 							<section class="preset-settings-section">
 
 								<div class="module-36 settings-section-header no-border col-12">
@@ -611,11 +630,11 @@
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
-											<div class="flex-row group-4 button-group">
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+											<div class="flex-row group-4">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
 												</button>
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
 												</button>
 											</div>
@@ -675,7 +694,7 @@
 
 								</div>
 
-								<div class="row" style="margin-bottom: 0px;">
+								<div class="row" style="margin-bottom: 24px;">
 									<div class="module-36 col-12">
 										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
 										<div class="slider-container">
@@ -687,7 +706,7 @@
 									</div>
 								</div>
 
-								<div class="row" style="margin-bottom: 24px;">
+								<!-- <div class="row" style="margin-bottom: 24px;">
 									<div class="module-36 col-12">
 										<img src="icons/ic-line-spacing.svg" height="24px" width="24px" alt="" class="slider-icon">
 										<div class="slider-container">
@@ -697,7 +716,7 @@
 										</div>
 										<input type="text" class="slider-input" value="100">
 									</div>
-								</div>
+								</div> -->
 
 								<div class="row">
 									<div class="module-60 col-3">
@@ -809,27 +828,27 @@
 										<div class="module-36">
 											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-180" max="180" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
@@ -868,10 +887,10 @@
 							</section>	
 						</div>
 
-						<div id="alerts-settings-custom-message-content" style="display: none; flex-direction: column; flex-grow: 1;">
+						<div id="alerts-settings-custom-message-content" class="settings-content" style="display: none; flex-direction: column; flex-grow: 1;">
 							<div id="custom-message-subscr-placeholder">
 								<h2>Upgrade your subscription and start using custom messages</h2>
-								<p>You can test custom message in a preview mode. But keep in mind, that it won’t be displayed in your stream.</p>
+								<p>You can also test custom message in a preview mode. But keep in mind, that it won’t be displayed in your stream.</p>
 								<div style="display: flex; flex-direction: row;">
 									<button id="custom-message-test" class="button-text">Test in preview</button>
 									<button class="button-text">Upgrade to premium</button>
@@ -926,11 +945,11 @@
 										<label for="" class="row-title">Style</label>
 										<div class="module-36">
 
-											<div class="flex-row group-4 button-group">
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+											<div class="flex-row group-4">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
 												</button>
-												<button class="group-6 button-icon-fix-padding font-style-ind">
+												<button class="group-6 button-icon-fix-padding font-style-ind button-icon" style="margin-right: 6px;">
 													<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
 												</button>
 											</div>
@@ -1123,27 +1142,27 @@
 										<div class="module-36">
 											<img src="icons/ic-shift-horizontal.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-shift-vertical.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-100" max="100" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
 										<div class="module-36">
 											<img src="icons/ic-rotate.svg" height="24px" width="24px" alt="" class="slider-icon">
 											<div class="slider-container">
-												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<input type="range" min="-180" max="180" value="0" class="newSlider">
 												<div class="slider-bar-empty"></div>
-												<div class="slider-bar-fill"></div>
+												<div class="slider-bar-fill-center"></div>
 											</div>
 											<input type="text" class="slider-input" value="100">
 										</div>
@@ -1226,11 +1245,11 @@
 
 									<div class="col-7  module-36">
 										
-												<div class="gallery-filter"> <span>TipAlerts</span> </div>
+												<div class="gallery-filter" id="tipalerts-filter"> <span>TipAlerts</span> </div>
 											
-												<div class="gallery-filter gallery-filter-selected"> <span>Uploaded</span> </div>
+												<div class="gallery-filter gallery-filter-selected" id="uploaded-filter"> <span>Uploaded</span> </div>
 												
-												<div class="gallery-filter"> <span>Random Pool</span> </div>
+												<div class="gallery-filter" id="random-pool-filter"> <span>Random Pool</span> </div>
 										
 									</div>
 
@@ -1238,7 +1257,7 @@
 											
 							</div>
 
-							<div class="images-gallery-wrapper">
+							<div class="images-gallery-wrapper" id="gallery-uploaded">
 								<div class="img-row">
 									<div class="image"></div>
 									<div class="image"></div>
@@ -1272,13 +1291,17 @@
 									<div class="image"></div>
 									<div class="image"></div>
 									<div class="image"></div>
-								</div>
-								
-								
+								</div>		
+							</div>
+
+							<div class="images-gallery-wrapper" id="gallery-random-pool">
+								<p id="random-pool-placeholder">
+									Images from random pool will be displayed if “Random image” option is active. To add image into random pool hover cursor over image and click “Show in random pool” button. 
+								</p>
 							</div>
 						</div>
 
-						<div id="alerts-settings-sound-content" style="display: none; flex-direction: column; height: 100%; overflow: hidden;">
+						<div id="alerts-settings-sound-content" class="settings-content" style="display: none; flex-direction: column; height: 100%; overflow: hidden;">
 							<div class="row ">
 								<div class="col-9 module-36">
 									<div><span class="slider-icon">Volume</span></div>
@@ -1460,7 +1483,6 @@
 								
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -1471,11 +1493,13 @@
 <script src="js/alerts/tabs.js"></script>
 <script src="js/alerts/presetMode.js"></script>
 <script src="js/alerts/durationMode.js"></script>
+<script src="js/alerts/image.js"></script>
 <script src="js/slider.js"></script>
 <script src="js/fontStyles.js"></script>
 <script src="js/sound.js"></script>
 <script src="js/presetPicker.js"></script>
 <script src="js/alerts/customMessage.js"></script>
+<script src="js/modals.js"></script>
 
 </body>
 </html>
