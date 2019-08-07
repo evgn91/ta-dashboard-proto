@@ -27,7 +27,7 @@ var alertsTabsContent = {
 	'alerts-settings-sound-content' : document.getElementById( 'alerts-settings-sound-content' )
 }
 
-console.log(alertsTabsContent['alerts-settings-preset-content']);
+//console.log(alertsTabsContent['alerts-settings-preset-content']);
 
 var activeTab = document.getElementById( ALERTS_TAB_ID.preset );
 var activeTabContent = document.getElementById('alerts-settings-preset-content');
@@ -41,19 +41,16 @@ function showTab() {
 
 //alertsTabs.tipAmount.addEventListener('click', showTab);
 
-for(let key in alertsTabs) {
-	console.log(key);
-}
 
 for(let key in alertsTabs){
 	alertsTabs[key].addEventListener('click', switchTab);
 }
 
 function switchTab(e) {
-	console.log('switch tab');
+	//console.log('switch tab');
 	var targetId = e.target.id + '-content';
-	console.log(targetId);
-	console.log(alertsTabsContent[targetId]);
+	//console.log(targetId);
+	//console.log(alertsTabsContent[targetId]);
 	activeTabContent.style.display = 'none';
 	activeTab.classList.remove('settings-tabs-item-active');
 	activeTab = e.target;
