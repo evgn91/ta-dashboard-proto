@@ -1,5 +1,5 @@
 var presets_container = document.getElementsByClassName('presets-collection');
-var preset;
+var preset = [];
 var selected_preset;
 
 var any_tip = document.getElementById('any-tip');
@@ -8,6 +8,9 @@ var default_tip_condition = document.getElementById('default_tip_condition');
 
 
 function switchPreset() {
+
+	console.log(event.target);
+
 	if(this == selected_preset){
 		console.log(this);	
 	}
@@ -35,11 +38,18 @@ function switchPreset() {
 }
 
 for(let i = 0; i < presets_container.length; i++){
-	preset = presets_container[i].children;
+	console.log('PRESETS CONTAINER');
+	preset[i] = presets_container[i].children;
 }
 
-selected_preset = preset[2];
+selected_preset = preset[0][2];
+console.log(selected_preset);
 
-for(let j = 0; j < preset.length; j++){
-	preset[j].addEventListener('click', switchPreset);
+for(let k = 0; k < preset.length; k++){
+	for(let j = 0; j < preset[k].length; j++){
+		//console.log( 'PRESET' );
+		//console.log( preset[k][j] );
+		//preset[j].addEventListener('click', switchPreset);
+		preset[k][j].addEventListener('click', switchPreset );
+	}	
 }

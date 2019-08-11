@@ -9,14 +9,18 @@
 	flex-direction: column;
 	box-sizing: border-box;
 	padding: 12px 16px 0 16px;
-	animation-name: modalGrow;
-	animation-duration: .15s;
-	animation-fill-mode: forwards;
-	animation-timing-function: ease-out;
-
 }
 
 .shadow-settings-popup{
+	width: 336px;
+	box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
+	/*animation-name: modalGrow;
+	animation-duration: .15s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-out;*/
+}
+
+.border-settings-popup{
 	width: 336px;
 	box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.1);
 }
