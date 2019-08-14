@@ -22,16 +22,12 @@ var tabsControls = {
 	'image' : goalsTabsContent['goals-image-content']
 }
 
-for( let key in tabsControls ){
-	
-	goalsTabs[key].addEventListener( 'click', switchTabGoals( goalsTabs[key], tabsControls[key] ) );
 
-}
 
 function switchTabGoals(control, view) {
 	return function(){
 		if(activeGoalsTab != control){
-
+			console.log(view);
 			activeGoalsTab.classList.remove('settings-tabs-item-active');
 			control.classList.add('settings-tabs-item-active');
 			activeGoalsTab = control;
@@ -40,7 +36,14 @@ function switchTabGoals(control, view) {
 			view.style.display = 'block';
 
 			activeGoalsTabContent = view;
+			console.log(view);
 
 		}
 	}
 }
+
+for( let key in tabsControls ){
+	
+	goalsTabs[key].addEventListener( 'click', switchTabGoals( goalsTabs[key], tabsControls[key] ) );
+}
+

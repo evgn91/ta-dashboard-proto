@@ -125,11 +125,11 @@
 					<div>Goals</div>
 				</a>
 
-				<a href="#" class="nav-item">
+				<a href="#" class="nav-item" id="widget-top-tippers">
 					<div>Top Tippers</div>
 				</a>
 
-				<a href="#" class="nav-item">
+				<a href="#" class="nav-item" id="widget-roll-the-dice">
 					<div>Roll The Dice</div>
 				</a>
 
@@ -201,6 +201,46 @@
 				</div>
 			</div>
 
+			<div class="widget-head" id="top-tippers-widget-head" style="display: none;">
+				<span class="widget-title">Top Tippers</span>
+
+				<div style="display: flex; flex-direction: row; justify-content: flex-end; ">
+					<div style="height: 36px; display: flex; align-items: center; margin-right: 12px;">
+						<span>Widget link</span>
+					</div>
+
+					<div style="display: flex; flex-direction: column;">
+						<input type="text" id="widget-link-input" value="https://tipalerts.com/w/top/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+						<span class="widget-link-warning">Warning! Do not publish widget link, it’ll cause access to your widgets and stats.</span>
+					</div>
+
+					<button class="button-text" style="margin-left: 6px;">Copy</button>
+					<button class="button-icon" style="margin-left: 6px;">
+						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+					</button>
+				</div>
+			</div>
+
+			<div class="widget-head" id="roll-the-dice-widget-head" style="display: none;">
+				<span class="widget-title">Roll The Dice</span>
+
+				<div style="display: flex; flex-direction: row; justify-content: flex-end; ">
+					<div style="height: 36px; display: flex; align-items: center; margin-right: 12px;">
+						<span>Widget link</span>
+					</div>
+
+					<div style="display: flex; flex-direction: column;">
+						<input type="text" id="widget-link-input" value="https://tipalerts.com/w/dice/e00b2c04-1571-4750-98f6-e3dc8e13ad8e">
+						<span class="widget-link-warning">Warning! Do not publish widget link, it’ll cause access to your widgets and stats.</span>
+					</div>
+
+					<button class="button-text" style="margin-left: 6px;">Copy</button>
+					<button class="button-icon" style="margin-left: 6px;">
+						<img src="icons/ic-help.svg" height="24px" width="24px" alt="">
+					</button>
+				</div>
+			</div>
+
 			<div class="presets-picker" id="alerts-presets-picker">
 				<h2>Preset</h2>
 				<div class="presets-collection">
@@ -241,7 +281,11 @@
 
 						
 					</div>
+
 					<div class="preview" id="goals-preview" style="display: none;"></div>
+					<div class="preview" id="top-tippers-preview" style="display: none;"></div>
+					<div class="preview" id="roll-the-dice-preview" style="display: none;"></div>
+				
 				</div>
 
 				<div class="settings">
@@ -262,7 +306,284 @@
 						<div class="settings-tabs-item" id="goals-settings-image">Image</div>
 					</div>
 
+					<div class="settings-tabs-wrapper" id="top-tippers-tabs" style="display: none;">
+						<div class="settings-tabs-item settings-tabs-item-active" id="top-tippers-settings-widget">Widget</div>
+					</div>
+
+					<div class="settings-tabs-wrapper" id="roll-the-dice-tabs" style="display: none;">
+						<div class="settings-tabs-item settings-tabs-item-active" id="roll-the-dice-settings-widget">Widget</div>
+						<div class="settings-tabs-item" id="roll-the-dice-settings-prizes">Prizes list</div>
+						<div class="settings-tabs-item" id="roll-the-dice-settings-notifs">Notifications</div>
+						<div class="settings-tabs-item" id="roll-the-dice-settings-sounds">Sounds</div>
+					</div>
+
 					<div class="settings-tab-content">
+
+						<section style="overflow: hidden; flex-grow: 1; display: none;" id="roll-the-dice-settings-wrapper">
+
+							<div class="settings-content" id="roll-the-dice-widget-content">
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Game settings</span>
+									</div>
+
+								</section>
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Widget position</span>
+									</div>
+
+								</section>
+							</div>
+
+							<div class="settings-content" id="roll-the-dice-prizes-content">
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Game settings</span>
+									</div>
+
+								</section>
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Widget position</span>
+									</div>
+
+								</section>
+							</div>
+
+							<div class="settings-content" id="roll-the-dice-notifs-content">
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Game settings</span>
+									</div>
+
+								</section>
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Widget position</span>
+									</div>
+
+								</section>
+							</div>
+
+							<div class="settings-content" id="roll-the-dice-sounds-content">
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Game settings</span>
+									</div>
+
+								</section>
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>Widget position</span>
+									</div>
+
+								</section>
+							</div>
+
+						</section>
+
+						<section style="overflow: hidden; flex-grow: 1; display: none;" id="top-tippers-settings-wrapper">
+
+							<div class="settings-content" id="top-tippers-widget-content">
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header no-border col-12">
+										<span>List</span>
+									</div>
+									
+									<div class="row">
+										
+										<div class="col-3 module-60">
+											<label class="row-title">Length</label>
+											<div class="color-picker module-36">
+												<input type="number" value="3" style="width: 92px;" min="1">
+											</div>
+										</div>
+
+										<div class="col-3 module-60">
+												<label for="top-tippers-list-bg" class="row-title checkbox-container checkbox-container-small">
+													<input type="checkbox" id="top-tippers-list-bg">
+													<span class="checkmark"></span>
+													<span class="checkbox-text checkbox-text-small">Background</span>
+												</label>
+												<div class="color-picker module-36">
+													<div class='color-picker-fill'></div>
+													<button class="button-icon">
+														<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+													</button>
+													
+												</div>	
+										</div>
+
+										<div class="col-3"></div>
+										<div class="col-3"></div>
+									</div>
+									
+
+								</section>
+
+								<section class="preset-settings-section">
+								
+									<div class="module-36 settings-section-header col-12">
+										<span>Text appearance</span>
+									</div>
+
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="col-7 module-60">
+											<label for="" class="row-title">Font</label>
+											<select name="" id="">
+												<option value="">Montserrat</option>
+												<option value="">Arial</option>
+												<option value="">Comic Sans</option>
+												<option value="">Times New Roman</option>
+											</select>
+										</div>
+
+										<div class="col-5 module-60">
+											<label for="" class="row-title">Weight</label>
+											<select name="" id="">
+												<option value="">Regular</option>
+												<option value="">Semibold</option>
+												<option value="">Extrabold</option>
+												<option value="">Black</option>
+											</select>
+										</div>
+
+									</div>
+
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="col-7 module-60">
+											<label for="" class="row-title">Style</label>
+											<div class="module-36">
+
+												<div class="flex-row group-4">
+													<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Bold'>
+														<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Italic'>
+														<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
+
+												<div class="flex-row group-4 button-group font-style-dep">
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Strike'>
+														<img src="icons/ic-strike-text.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Underline'>
+														<img src="icons/ic-underline.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
+
+												<div class="flex-row group-4 button-group font-style-dep">
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Uppercase'>
+														<img src="icons/ic-uppercase.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Lowercase'>
+														<img src="icons/ic-lowercase.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
+
+											</div>
+										
+										</div>
+
+										<div class="col-3 module-60">
+											<label for="" class="row-title" style="display: none;">Alignment</label>
+											<div class="module-36" style="display: none;">
+												<div class="flex-row group-12 button-group text-alignment-buttons">
+													
+													<button class="group-4 button-icon-fix-padding ">
+															<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
+													</button>
+
+													<button class="group-4 button-icon-fix-padding font-style-ind-active">
+															<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
+													</button>
+
+													<button class="group-4 button-icon-fix-padding">
+															<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
+													</button>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="col-2 module-60">
+											<label for="" class="row-title">Color</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="module-36 col-12">
+											<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="module-60 col-3">
+											<label for="name-shadow" class="row-title checkbox-container checkbox-container-small">
+												<input type="checkbox" id="name-shadow">
+												<span class="checkmark"></span>
+												<span class="checkbox-text checkbox-text-small">Shadow</span>
+											</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+												<button class="button-icon button-no-bg shadow-settings-button tooltipElem" data-tooltiptext='Shadow settings'>
+													<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
+										</div>
+										<div class="module-60 col-3">
+											<label for="name-bg" class="row-title checkbox-container checkbox-container-small">
+												<input type="checkbox" name="background" id="name-bg">
+												<span class="checkmark"></span>
+												<span class="checkbox-text checkbox-text-small">Background</span>
+											</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>	
+						</section>
 
 						<section style="overflow: hidden; flex-grow: 1; display: none;" id="goals-settings-wrapper">
 
@@ -383,145 +704,145 @@
 
 								<section class="preset-settings-section">
 								
-								<div class="module-36 settings-section-header col-12">
-									<span>Text appearance</span>
-								</div>
-
-								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-7 module-60">
-										<label for="" class="row-title">Font</label>
-										<select name="" id="">
-											<option value="">Montserrat</option>
-											<option value="">Arial</option>
-											<option value="">Comic Sans</option>
-											<option value="">Times New Roman</option>
-										</select>
+									<div class="module-36 settings-section-header col-12">
+										<span>Text appearance</span>
 									</div>
 
-									<div class="col-5 module-60">
-										<label for="" class="row-title">Weight</label>
-										<select name="" id="">
-											<option value="">Regular</option>
-											<option value="">Semibold</option>
-											<option value="">Extrabold</option>
-											<option value="">Black</option>
-										</select>
-									</div>
-
-								</div>
-
-								<div class="row" style="margin-bottom: 24px;">
-									<div class="col-7 module-60">
-										<label for="" class="row-title">Style</label>
-										<div class="module-36">
-
-											<div class="flex-row group-4">
-												<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Bold'>
-													<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
-												</button>
-												<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Italic'>
-													<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
-												</button>
-											</div>
-
-											<div class="flex-row group-4 button-group font-style-dep">
-												<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Strike'>
-													<img src="icons/ic-strike-text.svg" height="24px" width="24px" alt="">
-												</button>
-												<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Underline'>
-													<img src="icons/ic-underline.svg" height="24px" width="24px" alt="">
-												</button>
-											</div>
-
-											<div class="flex-row group-4 button-group font-style-dep">
-												<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Uppercase'>
-													<img src="icons/ic-uppercase.svg" height="24px" width="24px" alt="">
-												</button>
-												<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Lowercase'>
-													<img src="icons/ic-lowercase.svg" height="24px" width="24px" alt="">
-												</button>
-											</div>
-
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="col-7 module-60">
+											<label for="" class="row-title">Font</label>
+											<select name="" id="">
+												<option value="">Montserrat</option>
+												<option value="">Arial</option>
+												<option value="">Comic Sans</option>
+												<option value="">Times New Roman</option>
+											</select>
 										</div>
-									
+
+										<div class="col-5 module-60">
+											<label for="" class="row-title">Weight</label>
+											<select name="" id="">
+												<option value="">Regular</option>
+												<option value="">Semibold</option>
+												<option value="">Extrabold</option>
+												<option value="">Black</option>
+											</select>
+										</div>
+
 									</div>
 
-									<div class="col-3 module-60">
-										<label for="" class="row-title" style="display: none;">Alignment</label>
-										<div class="module-36" style="display: none;">
-											<div class="flex-row group-12 button-group text-alignment-buttons">
-												
-												<button class="group-4 button-icon-fix-padding ">
-														<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
-												</button>
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="col-7 module-60">
+											<label for="" class="row-title">Style</label>
+											<div class="module-36">
 
-												<button class="group-4 button-icon-fix-padding font-style-ind-active">
-														<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
-												</button>
+												<div class="flex-row group-4">
+													<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Bold'>
+														<img src="icons/ic-font-bold.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding font-style-ind button-icon tooltipElem" style="margin-right: 6px;" data-tooltiptext='Italic'>
+														<img src="icons/ic-font-italic.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
 
-												<button class="group-4 button-icon-fix-padding">
-														<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
-												</button>
+												<div class="flex-row group-4 button-group font-style-dep">
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Strike'>
+														<img src="icons/ic-strike-text.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Underline'>
+														<img src="icons/ic-underline.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
+
+												<div class="flex-row group-4 button-group font-style-dep">
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Uppercase'>
+														<img src="icons/ic-uppercase.svg" height="24px" width="24px" alt="">
+													</button>
+													<button class="group-6 button-icon-fix-padding tooltipElem" data-tooltiptext='Lowercase'>
+														<img src="icons/ic-lowercase.svg" height="24px" width="24px" alt="">
+													</button>
+												</div>
 
 											</div>
+										
+										</div>
+
+										<div class="col-3 module-60">
+											<label for="" class="row-title" style="display: none;">Alignment</label>
+											<div class="module-36" style="display: none;">
+												<div class="flex-row group-12 button-group text-alignment-buttons">
+													
+													<button class="group-4 button-icon-fix-padding ">
+															<img src="icons/ic-text-align-left.svg" height="24px" width="24px" alt="">
+													</button>
+
+													<button class="group-4 button-icon-fix-padding font-style-ind-active">
+															<img src="icons/ic-text-align-center.svg" height="24px" width="24px" alt="">
+													</button>
+
+													<button class="group-4 button-icon-fix-padding">
+															<img src="icons/ic-text-align-right.svg" height="24px" width="24px" alt="">
+													</button>
+
+												</div>
+											</div>
+										</div>
+
+										<div class="col-2 module-60">
+											<label for="" class="row-title">Color</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
+										</div>
+
+									</div>
+
+									<div class="row" style="margin-bottom: 24px;">
+										<div class="module-36 col-12">
+											<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
+											<div class="slider-container">
+												<input type="range" min="0" max="100" value="50" class="newSlider">
+												<div class="slider-bar-empty"></div>
+												<div class="slider-bar-fill"></div>
+											</div>
+											<input type="text" class="slider-input" value="100">
 										</div>
 									</div>
 
-									<div class="col-2 module-60">
-										<label for="" class="row-title">Color</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
+									<div class="row">
+										<div class="module-60 col-3">
+											<label for="name-shadow" class="row-title checkbox-container checkbox-container-small">
+												<input type="checkbox" id="name-shadow">
+												<span class="checkmark"></span>
+												<span class="checkbox-text checkbox-text-small">Shadow</span>
+											</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+												<button class="button-icon button-no-bg shadow-settings-button tooltipElem" data-tooltiptext='Shadow settings'>
+													<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
+										</div>
+										<div class="module-60 col-3">
+											<label for="name-bg" class="row-title checkbox-container checkbox-container-small">
+												<input type="checkbox" name="background" id="name-bg">
+												<span class="checkmark"></span>
+												<span class="checkbox-text checkbox-text-small">Background</span>
+											</label>
+											<div class="color-picker module-36">
+												<div class='color-picker-fill'></div>
+												<button class="button-icon">
+													<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
+												</button>
+											</div>
 										</div>
 									</div>
-
-								</div>
-
-								<div class="row" style="margin-bottom: 24px;">
-									<div class="module-36 col-12">
-										<img src="icons/ic-font-size.svg" height="24px" width="24px" alt="" class="slider-icon">
-										<div class="slider-container">
-											<input type="range" min="0" max="100" value="50" class="newSlider">
-											<div class="slider-bar-empty"></div>
-											<div class="slider-bar-fill"></div>
-										</div>
-										<input type="text" class="slider-input" value="100">
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="module-60 col-3">
-										<label for="name-shadow" class="row-title checkbox-container checkbox-container-small">
-											<input type="checkbox" id="name-shadow">
-											<span class="checkmark"></span>
-											<span class="checkbox-text checkbox-text-small">Shadow</span>
-										</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
-											<button class="button-icon button-no-bg shadow-settings-button tooltipElem" data-tooltiptext='Shadow settings'>
-												<img src="icons/ic-settings.svg" height="24px" width="24px" alt="">
-											</button>
-										</div>
-									</div>
-									<div class="module-60 col-3">
-										<label for="name-bg" class="row-title checkbox-container checkbox-container-small">
-											<input type="checkbox" name="background" id="name-bg">
-											<span class="checkmark"></span>
-											<span class="checkbox-text checkbox-text-small">Background</span>
-										</label>
-										<div class="color-picker module-36">
-											<div class='color-picker-fill'></div>
-											<button class="button-icon">
-												<img src="icons/ic-dice.svg" height="24px" width="24px" alt="">
-											</button>
-										</div>
-									</div>
-								</div>
 								</section>
 
 								<section class="preset-settings-section" style="margin-bottom: 0px;">
@@ -945,7 +1266,6 @@
 									</p>
 								</div>
 							</div>
-
 						</section>
 						
 						<section style="overflow: hidden; flex-grow: 1;" id="alerts-settings-wrapper">
@@ -2272,8 +2592,8 @@
 									</div>
 								</div>
 							</div>
-
 						</section>
+
 					</div>
 
 				</div>
@@ -2286,6 +2606,7 @@
 <script src="js/alerts/tipAmount.js"></script>
 <script src="js/alerts/tabs.js"></script>
 <script src="js/goals/tabs.js"></script>
+<script src="js/rollTheDice/tabs.js"></script>
 <script src="js/alerts/presetMode.js"></script>
 <script src="js/alerts/durationMode.js"></script>
 <script src="js/alerts/image.js"></script>
