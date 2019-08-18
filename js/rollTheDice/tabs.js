@@ -24,7 +24,9 @@ var diceTabsControls = {
 }
 
 function switchTabDice(control, view) {
+
 	return function(){
+		console.log(control, view);
 		if(activeGoalsTab != control){
 			
 			activeDiceTab.classList.remove('settings-tabs-item-active');

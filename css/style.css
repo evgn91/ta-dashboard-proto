@@ -509,7 +509,7 @@
 			box-sizing: border-box;
 			border-top: 1px solid hsla(205, 35%, 23%, 1);
 			font-weight: 500;
-			font-size: 20px;
+			font-size: 18px;
 			line-height: 24px;
 			display: flex;
 			flex-direction: row;
@@ -662,6 +662,10 @@
 		.sound-play-active img{
 			opacity: 1;
 			background-image: url('../icons/ic-stop.svg');
+		}
+
+		.group-3{
+			width: 25%;
 		}
 
 		.group-4{
@@ -928,6 +932,12 @@
 	position: absolute;
 }
 
+.checkbox-hint{
+	font-size: 14px;
+	opacity: .54;
+	margin-left: 20px;
+}
+
 .checkmark{
 	width: 12px;
 	height: 12px;
@@ -1185,6 +1195,40 @@
 	z-index: 1;
 }
 
+.prizes-list-wrapper{
+	box-sizing: border-box;
+	border-radius: 6px;
+	border: 1px solid #293D4C;
+	width: 100%;
+}
+
+.prize{
+	/*margin-bottom: 6px;*/
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 0 12px;
+	transition: all .2s ease;
+}
+
+.prize:hover{
+	cursor: pointer;
+	background-color: rgba(0,0,0,0.05);
+}
+
+.prize:hover > .prize-title{
+	border-bottom: 1px dashed white;
+}
+
+.prize-title{
+	box-sizing: border-box;
+}
+
+.prize-number{
+	margin-right: 12px;
+	opacity: .54;
+}
+
 .anim-collapse{
 	animation-name: collapse;
 	animation-duration: .175s;
@@ -1206,6 +1250,61 @@
 .font-style-ind-active:hover{
 	background-color: hsl( 33, 100%, 73% );
 }
+
+.dice-position-preset-wrapper > div{
+	margin-right: 8px;
+}
+
+.dice-position-preset-wrapper > label{
+	margin-right: 8px;
+}
+
+
+
+.dice-position-preset{
+	border-radius: 4px;
+	padding: 0px 1px 1px 1px;
+	
+	background-color: hsl(206, 29%, 36%);
+	box-sizing: border-box;
+	transition: all .2s ease;
+}
+
+.dice-position-preset > label{
+	height: 28px;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.dice-position-preset span.radio::after{
+	top:11px;
+}
+
+.dice-position-preset span.checkbox-text{
+	font-size: 14px;
+}
+
+.dice-position-preset:hover {
+	cursor: pointer;
+	background-color: hsl(206, 29%, 46%);
+}
+
+.dice-position-preset-active{
+	background-color: #FFB65A;
+}
+
+.dice-position-preset-active span.checkbox-text{
+	color: #333;
+}
+
+.dice-position-preset-preview-bg{
+	border-radius: 2px;
+	width: 100%;
+	height: 108px;
+	background-image: url('../img/preview-bg.png');
+}
+
+
 
 @keyframes moveTop{
 	from {  transform: translateY(6px);
